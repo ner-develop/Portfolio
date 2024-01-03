@@ -5,6 +5,15 @@
 
 body {
     background-color: rgb(245, 245, 245);
+    transition: background-color 2s ease;
+}
+
+.color-section1 {
+    background-color: rgb(245, 245, 245);
+}
+
+.color-section2 {
+    background-color: rgb(211, 221, 235);
 }
 
 .title-container {
