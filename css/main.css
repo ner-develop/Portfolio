@@ -13,7 +13,14 @@ body {
 }
 
 .color-section2 {
-    background-color: rgb(211, 221, 235);
+    /*Blue Gray 100*/
+    background-color: #CFD8DC;
+    /*Teal 100*/
+    /*background-color: #B2DFDB;*/
+    /*Light Blue 50*/
+    /*background-color: #E1F5FE;*/
+    /*Pink 50*/
+    /*background-color: #FCE4EC;*/
 }
 
 .title-container {
