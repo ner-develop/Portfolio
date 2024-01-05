@@ -50,6 +50,9 @@
         M.Carousel.init(carouselElements, {
             indicators: true,
         });
+        // ToolTips
+        var tooltippedElements = document.querySelectorAll('.tooltipped');
+        M.Tooltip.init(tooltippedElements, {});
     }
 
     function addBlinkUnderscore(parentElement, blinkInterval) {
