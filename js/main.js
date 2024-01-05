@@ -10,7 +10,7 @@
 
         // initialize
         initBackgroundColorChanger();
-        initMaterialBoxed();
+        initMaterializeWeb();
 
         // animation
         await playCursorWaitAnimation(titleElement, 2000, blinkCusrsorInterval);
@@ -41,9 +41,15 @@
         window.addEventListener('scroll', setBackgroundColorByScrollPosition);
     }
 
-    function initMaterialBoxed() {
-        var elems = document.querySelectorAll('.materialboxed');
-        var instances = M.Materialbox.init(elems, {});
+    function initMaterializeWeb() {
+        // 画像の拡大
+        var materialboxedElements = document.querySelectorAll('.materialboxed');
+        M.Materialbox.init(materialboxedElements, {});
+        // 画像のカルーセル表示
+        var carouselElements = document.querySelectorAll('.carousel');
+        M.Carousel.init(carouselElements, {
+            indicators: true,
+        });
     }
 
     function addBlinkUnderscore(parentElement, blinkInterval) {
