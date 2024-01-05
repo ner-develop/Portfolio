@@ -10,6 +10,7 @@
 
         // initialize
         initBackgroundColorChanger();
+        initMaterialBoxed();
 
         // animation
         await playCursorWaitAnimation(titleElement, 2000, blinkCusrsorInterval);
@@ -38,6 +39,11 @@
 
         setBackgroundColorByScrollPosition();
         window.addEventListener('scroll', setBackgroundColorByScrollPosition);
+    }
+
+    function initMaterialBoxed() {
+        var elems = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems, {});
     }
 
     function addBlinkUnderscore(parentElement, blinkInterval) {

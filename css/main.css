@@ -3,7 +3,21 @@
     src: url("../fonts/NotoSansJP-VariableFont_wght.ttf") format("truetype");
 }
 
+
+/* 全般 ======================================================== */
+h1 {
+    font-size: 4.5em;
+}
+h2 {
+    font-size: 2.5em;
+}
+h3 {
+    font-size: 2em;
+}
+
 body {
+    font-family: 'NotoSans';
+    color: rgb(58, 58, 58);
     background-color: rgb(245, 245, 245);
     transition: background-color 2s ease;
 }
@@ -23,10 +37,20 @@ body {
     /*background-color: #FCE4EC;*/
 }
 
+video {
+ object-fit: contain;
+ height: 100%; 
+ width: 100%;
+}
+/* ============================================================= */
+
+
+
+
+/* 表紙 ========================================================= */
 .title-container {
-    height: 100vh;
+    height: 110vh;
     font-weight: 100;
-    color: rgb(58, 58, 58);
 }
 
 .title-block {
@@ -45,9 +69,22 @@ body {
 
 #title {
     display: inline-block;
-    /*font-size: 24px;*/
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid #000;
 }
+/* =============================================================== */
+
+
+
+/* 制作物 ========================================================= */
+.coding-gallery h2 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.coding-gallery .card {
+    margin: 2em;
+}
+/* ================================================================ */
 
