@@ -92,5 +92,9 @@ video {
     min-height: 200px;
     max-height: 400px;
 }
+
+.coding-gallery .card-iframe {
+    min-height: 260px;
+}
 /* ================================================================ */
 
