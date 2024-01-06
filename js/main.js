@@ -9,6 +9,7 @@
         const blinkCusrsorInterval = 500;
 
         // initialize
+        initIframeSelfPage();
         initBackgroundColorChanger();
         initMaterializeWeb();
 
@@ -53,6 +54,32 @@
         // ToolTips
         var tooltippedElements = document.querySelectorAll('.tooltipped');
         M.Tooltip.init(tooltippedElements, {});
+    }
+
+    function initIframeSelfPage() {
+        // iframe倍率の計算
+        const iframeElement = document.getElementById('iframe-self-page');
+        const screenWidth = window.innerWidth;
+        const iframeWidth = iframeElement.parentElement.clientWidth;
+        const iframeHeight = iframeElement.parentElement.clientHeight;
+        const iframeZoom = iframeWidth / screenWidth;
+
+        // iframe設定
+        iframeElement.style.width = `${iframeWidth}px`;
+        iframeElement.style.height = `${iframeHeight}px`;
+        iframeElement.src = `index.html?iframe=true&zoom=${iframeZoom}`;
+
+        // 自身がiframeだった場合の設定 (URLパラメータで検知)
+        const url = new URL(document.location.href);
+        const urlParameters = url.searchParams;
+        const PageisIframe = urlParameters.get('iframe') == 'true';
+        if (PageisIframe)
+        {
+            const zoom = parseFloat(urlParameters.get('zoom'));
+            document.body.style = `zoom:${zoom};`;
+
+            iframeElement.src = "";
+        }
     }
 
     function addBlinkUnderscore(parentElement, blinkInterval) {
