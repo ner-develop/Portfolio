@@ -43,6 +43,19 @@ video {
     width: 100%;
     height: 100%;
 }
+
+.divider {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.spacer {
+    height: 10vh;
+}
+
+.carousel {
+    padding-bottom: 65%;
+}
 /* ============================================================= */
 
 
@@ -79,21 +92,21 @@ video {
 
 
 /* 制作物 ========================================================= */
-.coding-gallery h2 {
+.gallery h2 {
     text-align: center;
     font-weight: 600;
 }
 
-.coding-gallery .card {
+.gallery .card {
     margin: 2em;
 }
 
-.coding-gallery video {
+.gallery video {
     min-height: 200px;
     max-height: 400px;
 }
 
-.coding-gallery .card-iframe {
+.gallery .card-iframe {
     min-height: 260px;
 }
 /* ================================================================ */

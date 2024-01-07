@@ -50,6 +50,7 @@
         var carouselElements = document.querySelectorAll('.carousel');
         M.Carousel.init(carouselElements, {
             indicators: true,
+            fullWidth: true,
         });
         // ToolTips
         var tooltippedElements = document.querySelectorAll('.tooltipped');
