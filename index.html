@@ -106,6 +106,20 @@
             <div class="col s7">
                 <div class="card">
                     <div class="card-image">
+                        <video class="materialboxed" src="media/metaball.mp4" autoplay muted loop></video>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>モバイルでのメタボール表現</h3>
+                <p>レイマーチングを使ったメタボール表現の実装をしました。ピクセルごとに符号あり距離関数に応じてレイを進め、物体への当たり判定を取ります。そのため、画面のピクセルが多いほど処理負荷が大きくなります。低スペックAndroid端末で動作させたところ数秒に1フレーム更新できるかどうかです。そこでレイマーチングだけ専用パスを用意し、低解像度で描画し、最後に合成することで低スペック端末でも動作するようにしました。</p>
+                <p>GitHub：追加予定</p>
+                <p>技術ブログ：追加予定</p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
                         <video class="materialboxed" src="media/wave_equation.mp4" autoplay muted loop></video>
                     </div>
                 </div>
