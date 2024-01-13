@@ -1,7 +1,7 @@
 export enum MediaType {
     Image = 'img',
     Video = 'video',
-    Page = 'iframe',
+    SelfPage = 'self-page',
 }
 
 export interface Link {
@@ -167,13 +167,13 @@ export class GalleryHtmlConstructor {
                 return media.link ? this.generateLinkImageElement(media.src, media.link) : this.generateImageElement(media.src);
             case MediaType.Video:
                 return this.generateVideoElement(media.src);
-            case MediaType.Page:
-                return this.generatePageElement();
+            case MediaType.SelfPage:
+                return this.generateSelfPageElement();
         }
     }
 
     generateVideoElement(src: string): HTMLElement {
-        const videoElement: HTMLElement = document.createElement('video');
+        const videoElement = document.createElement('video') as HTMLVideoElement;
         videoElement.className = 'materialboxed';
         videoElement.setAttribute('src', src);
         videoElement.setAttribute('autoplay', '');
@@ -203,7 +203,11 @@ export class GalleryHtmlConstructor {
         return linkElement;
     }
     
-    generatePageElement(): HTMLElement {
+    /**
+     * 少し特殊。自身のページを表示するための専用iframe要素を生成する。
+     * @returns iframe要素
+     */
+    generateSelfPageElement(): HTMLElement {
         const pageElement: HTMLElement = document.createElement('iframe');
         pageElement.setAttribute('id', 'iframe-self-page');
         pageElement.setAttribute('frameborder', 'no');

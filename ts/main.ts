@@ -30,6 +30,9 @@ async function initializePage(): Promise<void> {
 }
 
 
+/**
+ * スクロール時に背景色を変更する
+ */
 function initBackgroundColorChanger(): void {
     const bodyElement: HTMLBodyElement | null = document.querySelector('body');
     const initialClassNameOfBody: string | null = bodyElement?.className || '';
@@ -48,26 +51,32 @@ function initBackgroundColorChanger(): void {
     window.addEventListener('scroll', setBackgroundColorByScrollPosition);
 }
 
+/**
+ * Materialize Webの初期化
+ */
 function initMaterializeWeb(): void {
-    // 画像の拡大の機能
+    // 画像の拡大の機能を有効化
     const materialboxedElements: NodeListOf<Element> = document.querySelectorAll('.materialboxed');
     M.Materialbox.init(materialboxedElements, {});
 
-    // 画像のカルーセル表示の機能
+    // 画像のカルーセル表示の機能を有効化
     const carouselElements: NodeListOf<Element> = document.querySelectorAll('.carousel');
     M.Carousel.init(carouselElements, {
         indicators: true,
         fullWidth: true,
     });
 
-    // Tooltipの機能
+    // Tooltipの機能を有効化
     const tooltippedElements: NodeListOf<Element> = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(tooltippedElements, {});
 }
 
 function initIframeSelfPage(): void {
+    const selfPageElement: HTMLElement | null = document.getElementById('iframe-self-page');
+    if (!selfPageElement) return;
+
     // iframe倍率の計算
-    const iframeElement: HTMLIFrameElement | null = document.getElementById('iframe-self-page') as HTMLIFrameElement;
+    const iframeElement: HTMLIFrameElement = selfPageElement as HTMLIFrameElement;
     const screenWidth: number = window.innerWidth;
     const iframeContainer: HTMLElement | null = iframeElement?.parentElement;
     const iframeWidth: number = iframeContainer?.clientWidth || 0;

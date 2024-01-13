@@ -145,7 +145,7 @@
                 "Github Pagesを使って、HTML/CSS/Javascriptで作成しています。"
             ],
             "media": {
-                "type": "iframe",
+                "type": "self-page",
                 "src": ""
             },
             "github": [
