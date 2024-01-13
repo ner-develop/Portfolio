@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-    entry : './ts-src/index.ts',
+    entry : './ts/main.ts',
     output : {
-        path : path.resolve(__dirname, 'ts-dist'),
-        filename : 'bundle.js'
+        path : path.resolve(__dirname, 'js'),
+        filename : 'index.js'
     },
     module : {
         rules : [
