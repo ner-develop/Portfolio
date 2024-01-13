@@ -38,27 +38,31 @@ function initBackgroundColorChanger(): void {
     if (!bodyElement) return;
 
     const initialClassNameOfBody: string | null = bodyElement?.className || '';
-    const scrolledY: number = window.scrollY;
 
     const codingGalleryElement: HTMLElement | null = document.getElementById('coding-gallery');
     const hasCodingGallery: boolean = codingGalleryElement !== null;
-    const codingGalleryTop: number = hasCodingGallery ? scrolledY + codingGalleryElement!.getBoundingClientRect().top : 0;
     
     const blogGalleryElement: HTMLElement | null = document.getElementById('blog-gallery');
     const hasBlogGallery: boolean = blogGalleryElement !== null;
-    const blogGalleryTop: number = hasBlogGallery ? scrolledY + blogGalleryElement!.getBoundingClientRect().top : 0;
 
     const artGalleryElement: HTMLElement | null = document.getElementById('art-gallery');
     const hasArtGallery: boolean = artGalleryElement !== null;
-    const artGalleryTop: number = hasArtGallery ? scrolledY + artGalleryElement!.getBoundingClientRect().top : 0;
 
     function setBackgroundColorByScrollPosition(): void {
+        let windowHeight: number = window.innerHeight;
+        let offset: number = windowHeight * 0.5;
         let scrollPosition: number = window.scrollY;
-        if (scrollPosition < codingGalleryTop) {
+
+        // 画面サイズが変動した場合に対応するため、スクロールごとに取得する
+        let codingGalleryTop: number = hasCodingGallery ? scrollPosition + codingGalleryElement!.getBoundingClientRect().top : 0;
+        let blogGalleryTop: number = hasBlogGallery ? scrollPosition + blogGalleryElement!.getBoundingClientRect().top : 0;
+        let artGalleryTop: number = hasArtGallery ? scrollPosition + artGalleryElement!.getBoundingClientRect().top : 0;
+
+        if (scrollPosition < codingGalleryTop - offset) {
             bodyElement!.className = `${initialClassNameOfBody} color-section1`;
-        } else if (scrollPosition < blogGalleryTop) {
+        } else if (scrollPosition < blogGalleryTop - offset) {
             bodyElement!.className = `${initialClassNameOfBody} color-section2`;
-        } else if (scrollPosition < artGalleryTop) {
+        } else if (scrollPosition < artGalleryTop - offset) {
             bodyElement!.className = `${initialClassNameOfBody} color-section3`;
         } else {
             bodyElement!.className = `${initialClassNameOfBody} color-section4`;
