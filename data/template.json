@@ -1,0 +1,24 @@
+{
+    "contents" : [
+        {
+            "title" : "",
+            "description" : "",
+            "media" : {
+                "type" : "",
+                "src" : ""
+            },
+            "github" : [
+                {
+                    "title" : "",
+                    "url" : ""
+                }
+            ],
+            "zenn" : [
+                {
+                    "title" : "",
+                    "url" : ""
+                }
+            ]
+        }
+    ]
+}
