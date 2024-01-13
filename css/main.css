@@ -1,7 +1,4 @@
-@font-face {
-    font-family: NotoSans;
-    src: url("../fonts/NotoSansJP-VariableFont_wght.ttf") format("truetype");
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap');
 
 
 /* 全般 ======================================================== */
@@ -19,7 +16,7 @@ p {
 }
 
 body {
-    font-family: 'NotoSans';
+    font-family: 'Noto Sans JP', sans-serif;
     color: rgb(58, 58, 58);
     background-color: rgb(245, 245, 245);
     transition: background-color 2s ease;
