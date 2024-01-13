@@ -5,7 +5,11 @@
             "description" : "",
             "media" : {
                 "type" : "",
-                "src" : ""
+                "src" : "",
+                "link" : {
+                    "title" : "",
+                    "url" : ""
+                }
             },
             "github" : [
                 {

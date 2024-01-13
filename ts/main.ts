@@ -1,5 +1,6 @@
 import { GalleryHtmlConstructor, ContentData } from "./galleryHtmlConstructor";
 import codingGalleryJson from "../data/coding-gallery.json";
+import blogGalleryJson from "../data/blog-gallery.json";
 
 
 
@@ -133,6 +134,9 @@ async function constructGallery(): Promise<void> {
 
     const codingGalleryData: ContentData = codingGalleryJson as ContentData;
     galleryHtmlConstructor.constructGalleryContents('coding-gallery', codingGalleryData.contents);
+
+    const blogGalleryData: ContentData = blogGalleryJson as ContentData;
+    galleryHtmlConstructor.constructGalleryContents('blog-gallery', blogGalleryData.contents);
 }
 
 

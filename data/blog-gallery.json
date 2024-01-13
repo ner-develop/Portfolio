@@ -1,0 +1,88 @@
+{
+    "contents": [
+        {
+            "title": "Gerstner Waves",
+            "description": [
+                "波の形状を表現する実装です。数式を順に読み解きながらどういう仕組みなのか解説しました。Gerstner Wavesの式は分解すると高校数学で扱う三角関数と内積のみで表現されており、波の形状という幾何的な形状を表すものなので、一つずつ追っていくことで式の意味が理解しやすいです。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_gerstner_waves.png",
+                "link": {
+                    "title": "[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)",
+                    "url": "https://zenn.dev/nrdev/articles/a1a350e5d7e725"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)",
+                    "url": "https://zenn.dev/nrdev/articles/a1a350e5d7e725"
+                }
+            ]
+        },
+        {
+            "title": "デカールペイント",
+            "description": [
+                "任意の3Dモデルにテクスチャを累積ペイントしていく実装について解説しました。任意の3Dモデルのテクスチャに描画するには直接UV空間で描画するのではなく、3D空間からUV空間に写像してテクスチャに描き込む必要があります。そこで、その写像をする専用シェーダーを実装します。デカールペイントをする際に、その専用シェーダーを介してデカール画像を描き込み、3Dモデルのテクスチャを更新していくことで実現しています。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_decal.png",
+                "link": {
+                    "title": "[Unity] 鮮血を、浴びせよ...!!",
+                    "url": "https://zenn.dev/nrdev/articles/1ae096ef6d9637"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] 鮮血を、浴びせよ...!!",
+                    "url": "https://zenn.dev/nrdev/articles/1ae096ef6d9637"
+                }
+            ]
+        },
+        {
+            "title": "オイラー陽解法",
+            "description": [
+                "物理シミュレーションの基礎的な手法について学びながら技術ブログにしました。物理シミュレーションは未来の値を近似して計算していきます。そこでテイラー展開による近似式を使います。テイラー展開の近似式で必要な微分の値を、運動方程式から得ることでその運動について近似計算します。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_forward_euler_method.png",
+                "link": {
+                    "title": "[Unity] オイラー陽解法から始める物理シミュ入門",
+                    "url": "https://zenn.dev/nrdev/articles/44c5a563846e06"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] オイラー陽解法から始める物理シミュ入門",
+                    "url": "https://zenn.dev/nrdev/articles/44c5a563846e06"
+                }
+            ]
+        },
+        {
+            "title": "シンプレクティック法",
+            "description": [
+                "オイラー陽解法にほんの少し手を加えるだけで精度が改善されるシンプレクティック法について調べたことについてまとめました。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_symplectic_method.png",
+                "link": {
+                    "title": "[Unity] シンプレクティック法でオイラー陽解法の精度改善",
+                    "url": "https://zenn.dev/nrdev/articles/f45e118d5796a4"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] シンプレクティック法でオイラー陽解法の精度改善",
+                    "url": "https://zenn.dev/nrdev/articles/f45e118d5796a4"
+                }
+            ]
+        }
+    ]
+}

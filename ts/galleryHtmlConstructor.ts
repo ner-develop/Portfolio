@@ -12,6 +12,7 @@ export interface Link {
 export interface Media {
     type: MediaType;
     src: string;
+    link: Link | null;
 }
 
 export interface ContentData {
@@ -119,20 +120,20 @@ export class GalleryHtmlConstructor {
     
     generateCardBlockHtml(media: Media): string {
         return `
-    <div class="col s7">
-        <div class="card">
-            <div class="card-image">
-                ${this.generateMediaHtml(media)}
-            </div>
+<div class="col s7">
+    <div class="card">
+        <div class="card-image">
+            ${this.generateMediaHtml(media)}
         </div>
     </div>
-    `;
+</div>
+`;
     }
     
     generateMediaHtml(media: Media): string {
         switch (media.type) {
             case MediaType.Image:
-                return this.generateImageHtml(media.src);
+                return media.link ? this.generateLinkImageHtml(media.src, media.link) : this.generateImageHtml(media.src);
             case MediaType.Video:
                 return this.generateVideoHtml(media.src);
             case MediaType.Page:
@@ -142,19 +143,27 @@ export class GalleryHtmlConstructor {
     
     generateVideoHtml(src: string): string {
         return `
-    <video class="materialboxed" src="${src}" autoplay muted loop></video>
-     `;
+<video class="materialboxed" src="${src}" autoplay muted loop></video>
+`;
     }
     
     generateImageHtml(src: string): string {
         return `
-    <img class="materialboxed" src="${src}"></img>
-    `;
+<img class="materialboxed" src="${src}"></img>
+`;
+    }
+
+    generateLinkImageHtml(src: string, link: Link): string {
+        return `
+<a class="tooltipped" data-position="top", data-tooltip="${link.title}" href="${link.url}">
+    <img src="${src}"></img>
+</a>
+`;
     }
     
     generatePageHtml(src: string): string {
         return `
-    <iframe id="iframe-self-page" frameborder="no"></iframe>
-    `;
+<iframe id="iframe-self-page" frameborder="no"></iframe>
+`;
     }
 }
