@@ -43,41 +43,13 @@
             <div class="col s7">
                 <div class="card">
                     <div class="card-image">
-                        <video class="materialboxed" src="media/gerstner_waves.mp4" autoplay muted loop></video>
-                    </div>
-                </div>
-            </div>
-            <div class="col s5">
-                <h3>Gerstner Waves</h3>
-                <p>GPU Gemsを参考にUnity上で実装しました。通常のSin波に、距離に応じてCos値のずれを加えることで密度差を生み出す手法は、シンプルながら波の勾配を表現することができとても面白いと感じました。</p>
-                <p>GitHub：<a href="https://github.com/ner-develop/GerstnerWaves">ner-develop/GerstnerWaves</a></p>
-                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/a1a350e5d7e725">[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)</a></p>
-            </div>
-
-            <div class="col s7">
-                <div class="card">
-                    <div class="card-image">
-                        <video class="materialboxed" src="media/decal_painter.mp4" autoplay muted loop></video>
-                    </div>
-                </div>
-            </div>
-            <div class="col s5">
-                <h3>Decal</h3>
-                <p>スプラトゥーンのようなペイント表現、攻撃したあとの返り血の表現など、オブジェクトの任意の場所にテクスチャを累積描画する実装をしてみました。</p>
-                <p>GitHub：<a href="https://github.com/ner-develop/DecalPainter">ner-develop/DecalPainter</a></p>
-                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/1ae096ef6d9637">[Unity] 鮮血を、浴びせよ...!!</a></p>
-            </div>
-
-            <div class="col s7">
-                <div class="card">
-                    <div class="card-image">
                         <video class="materialboxed" src="media/XPBD.mp4" autoplay muted loop></video>
                     </div>
                 </div>
             </div>
             <div class="col s5">
-                <h3>PBD/XPBD</h3>
-                <p>論文をもとにPBDとXPBDの実装をしました。PBDではどういう課題があり、それをXPBDではどう解決したのか、順に追って学べたのも面白かったです。アルゴリズムをただコーディングするだけでなく、論文を通して物理シミュレーションや数理最適などのテクニックなどに触れ、学びが多くありました。また、PBDは多く使われている技術のため、どのような実装ががされているのか知ることができ興味深く、楽しく実装できました。</p>
+                <h3>紐物理の実装</h3>
+                <p>論文をもとにPBD/XPBD(PositionBasedDynamics)の実装をしました。PBDではどういう課題があり、それをXPBDではどう解決したのか、順に追って学べたのも面白かったです。アルゴリズムをただコーディングするだけでなく、論文を通して物理シミュレーションや数理最適などのテクニックなどに触れ、学びが多くありました。また、PBDは多く使われている技術のため、どのような実装ががされているのか知ることができ興味深く、楽しく実装できました。</p>
                 <p>
                     GitHub(Unity)：<a href="https://github.com/ner-develop/PositionBasedDynamics">ner-develop/PositionBasedDynamics</a><br>
                     GitHub(UE5)：<a href="https://github.com/ner-develop/PositionBasedDynamicsForUE">ner-develop/PositionBasedDynamicsForUE</a><br>
@@ -92,12 +64,40 @@
             <div class="col s7">
                 <div class="card">
                     <div class="card-image">
+                        <video class="materialboxed" src="media/gerstner_waves.mp4" autoplay muted loop></video>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>Gerstner Wavesの実装</h3>
+                <p>GPU Gemsを参考にUnity上で実装しました。通常のSin波に、距離に応じてCos値のずれを加えることで密度差を生み出す手法は、シンプルながら波の勾配を表現することができとても面白いと感じました。</p>
+                <p>GitHub：<a href="https://github.com/ner-develop/GerstnerWaves">ner-develop/GerstnerWaves</a></p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/a1a350e5d7e725">[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)</a></p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
+                        <video class="materialboxed" src="media/decal_painter.mp4" autoplay muted loop></video>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>デカールペイント</h3>
+                <p>スプラトゥーンのようなペイント表現、攻撃したあとの返り血の表現など、オブジェクトの任意の場所にテクスチャを累積描画する実装をしてみました。</p>
+                <p>GitHub：<a href="https://github.com/ner-develop/DecalPainter">ner-develop/DecalPainter</a></p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/1ae096ef6d9637">[Unity] 鮮血を、浴びせよ...!!</a></p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
                         <video class="materialboxed" src="media/active-ragdoll.mp4" autoplay muted loop></video>
                     </div>
                 </div>
             </div>
             <div class="col s5">
-                <h3>Active Ragdoll</h3>
+                <h3>Active Ragdollの実装</h3>
                 <p>キャラクターをアニメーションで動かしつつ、物理影響を受けるラグドール化をする実装をしました。Fall GuysやHuman Fall Flatのようなキャラクターの動きを試してみたく実装しました。実装には誤差をフィードバックとして制御するPID制御を用いています。</p>
                 <p>GitHub：追加予定</p>
                 <p>技術ブログ：追加予定</p>
@@ -156,45 +156,86 @@
 
             <div class="col s7">
                 <div class="card">
-                    <div class="card-image">
-                        <a class="tooltipped" data-position="top", data-tooltip="技術ブログ：[Unity] オイラー陽解法から始める物理シミュ入門" href="https://zenn.dev/nrdev/articles/44c5a563846e06">
-                            <img src="media/forward_euler_method.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s5">
-                <h3>技術ブログ：オイラー陽解法</h3>
-                <p>物理シミュレーションの基礎的な手法について学びながら技術ブログにしました。</p>
-                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/44c5a563846e06">[Unity] オイラー陽解法から始める物理シミュ入門</a></p>
-            </div>
-
-            <div class="col s7">
-                <div class="card">
-                    <div class="card-image">
-                        <a class="tooltipped" data-position="top", data-tooltip="技術ブログ：[Unity] シンプレクティック法でオイラー陽解法の精度改善" href="https://zenn.dev/nrdev/articles/44c5a563846e06">
-                            <img src="media/symplectic_method.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s5">
-                <h3>技術ブログ：シンプレクティック法</h3>
-                <p>オイラー陽解法にほんの少し手を加えるだけで精度が改善されるシンプレクティック法について調べたことについてまとめました。</p>
-                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/f45e118d5796a4">[Unity] シンプレクティック法でオイラー陽解法の精度改善</a></p>
-            </div>
-
-            <div class="col s7">
-                <div class="card">
                     <div class="card-image card-iframe">
                         <iframe id="iframe-self-page" frameborder="no"></iframe>
                     </div>
                 </div>
             </div>
             <div class="col s5">
-                <h3>このページ</h3>
+                <h3>ポートフォリオ Webページ</h3>
                 <p>Github Pagesを使って、HTML/CSS/Javascriptで作成しています。</p>
                 <p>GitHub：<a href="https://github.com/ner-develop/Portfolio">ner-develop/Portfolio</a></p>
+            </div>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <!-- 技術ブログ -->
+        <div class="row coding-gallery">
+
+            <div class="col s12"> <h2>技術ブログ</h2> </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
+                        <a class="tooltipped" data-position="top", data-tooltip="[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)" href="https://zenn.dev/nrdev/articles/a1a350e5d7e725">
+                            <img src="media/blog_gerstner_waves.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>Gerstner Waves</h3>
+                <p>波の形状を表現する実装です。数式を順に読み解きながらどういう仕組みなのか解説しました。Gerstner Wavesの式は分解すると高校数学で扱う三角関数と内積のみで表現されており、波の形状という幾何的な形状を表すものなので、一つずつ追っていくことで式の意味が理解しやすいです。</p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/a1a350e5d7e725">[Unity] 数式を読み解きながら頂点シェーダーで波の動きを作ってみる(Gerstner Waves)</a></p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
+                        <a class="tooltipped" data-position="top", data-tooltip="[Unity] 鮮血を、浴びせよ...!!" href="https://zenn.dev/nrdev/articles/1ae096ef6d9637">
+                            <img src="media/blog_decal.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>デカールペイント</h3>
+                <p>任意の3Dモデルにテクスチャを累積ペイントしていく実装について解説しました。任意の3Dモデルのテクスチャに描画するには直接UV空間で描画するのではなく、3D空間からUV空間に写像してテクスチャに描き込む必要があります。そこで、その写像をする専用シェーダーを実装します。デカールペイントをする際に、その専用シェーダーを介してデカール画像を描き込み、3Dモデルのテクスチャを更新していくことで実現しています。</p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/1ae096ef6d9637">[Unity] 鮮血を、浴びせよ...!!</a></p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
+                        <a class="tooltipped" data-position="top", data-tooltip="[Unity] オイラー陽解法から始める物理シミュ入門" href="https://zenn.dev/nrdev/articles/44c5a563846e06">
+                            <img src="media/blog_forward_euler_method.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>オイラー陽解法</h3>
+                <p>物理シミュレーションの基礎的な手法について学びながら技術ブログにしました。物理シミュレーションは未来の値を近似して計算していきます。そこでテイラー展開による近似式を使います。テイラー展開の近似式で必要な微分の値を、運動方程式から得ることでその運動について近似計算します。</p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/44c5a563846e06">[Unity] オイラー陽解法から始める物理シミュ入門</a></p>
+            </div>
+
+            <div class="col s7">
+                <div class="card">
+                    <div class="card-image">
+                        <a class="tooltipped" data-position="top", data-tooltip="[Unity] シンプレクティック法でオイラー陽解法の精度改善" href="https://zenn.dev/nrdev/articles/44c5a563846e06">
+                            <img src="media/blog_symplectic_method.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s5">
+                <h3>シンプレクティック法</h3>
+                <p>オイラー陽解法にほんの少し手を加えるだけで精度が改善されるシンプレクティック法について調べたことについてまとめました。</p>
+                <p>技術ブログ：<a href="https://zenn.dev/nrdev/articles/f45e118d5796a4">[Unity] シンプレクティック法でオイラー陽解法の精度改善</a></p>
             </div>
 
         </div>
@@ -247,7 +288,7 @@
             </div>
             <div class="col s5">
                 <h3>パンケーキ</h3>
-                <p>Blenderを使ったオフラインレンダリングをしています。SubstancePainterを使用してリアルな食べ物を作ってみたいと思い制作しました。フォトリアルなアセットを作る際にアーティストが使うツールについて触れられたのは良かったです。また、SubstancePainterを使うことで、プログラマでも趣味制作の幅が広がりそうだと感じました。</p>
+                <p>Blenderを使ったモデリングとSubstance Painterを使ったテクスチャ作成により制作しました。SubstancePainterを使用してリアルな食べ物を作ってみたいと思い制作しました。フォトリアルなアセットを作る際にアーティストが使うツールについて触れられたのは良かったです。また、SubstancePainterを使うことで、プログラマでも趣味制作の幅が広がりそうだと感じました。</p>
             </div>
         </div>
         
