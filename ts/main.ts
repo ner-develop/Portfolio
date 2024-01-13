@@ -1,4 +1,5 @@
 import { GalleryHtmlConstructor, ContentData } from "./galleryHtmlConstructor";
+import { TypeWriterAnimator } from "./titleHeaderAnimator";
 import codingGalleryJson from "../data/coding-gallery.json";
 import blogGalleryJson from "../data/blog-gallery.json";
 import artGalleryJson from "../data/art-gallery.json";
@@ -8,27 +9,26 @@ import artGalleryJson from "../data/art-gallery.json";
 document.addEventListener('DOMContentLoaded', main);
 
 async function main(): Promise<void> {
-    const titleElement: HTMLElement | null = document.getElementById('title');
-    const titleText: string = 'Portfolio';
-    const blinkCursorInterval: number = 500;
+    // animation
+    const typeWriterAnimator: TypeWriterAnimator = new TypeWriterAnimator();
+    const typeWriterAnimation = typeWriterAnimator.play(document.getElementById('title'));
 
+    // initialize
+    const initializeProcess = initializePage();
+
+    await Promise.all([typeWriterAnimation, initializeProcess]);
+}
+
+async function initializePage(): Promise<void> {
     // ページ動的生成
     await constructGallery();
 
-    // initialize
+    // ページ初期化
     initIframeSelfPage();
     initBackgroundColorChanger();
     initMaterializeWeb();
-
-    // animation
-    await playCursorWaitAnimation(titleElement, 2000, blinkCursorInterval);
-    await playTypeWriterAnimation(titleElement, titleText);
-    addBlinkUnderscore(titleElement, blinkCursorInterval);
 }
 
-function sleep(msec: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, msec));
-}
 
 function initBackgroundColorChanger(): void {
     const bodyElement: HTMLBodyElement | null = document.querySelector('body');
@@ -90,38 +90,6 @@ function initIframeSelfPage(): void {
         const zoom: number = parseFloat(urlParameters.get('zoom') || '1');
         (document.body.style as any).zoom = `${zoom}`;
         iframeElement.src = '';
-    }
-}
-
-function addBlinkUnderscore(parentElement: HTMLElement | null, blinkInterval: number): HTMLSpanElement | null {
-    if (!parentElement) return null;
-
-    const spanElement: HTMLSpanElement = document.createElement('span');
-    spanElement.textContent = '_';
-    parentElement.appendChild(spanElement);
-
-    setInterval(function () {
-        spanElement.style.visibility = spanElement.style.visibility === 'hidden' ? 'visible' : 'hidden';
-    }, blinkInterval);
-
-    return spanElement;
-}
-
-async function playCursorWaitAnimation(textElement: HTMLElement | null, duration: number, blinkInterval: number): Promise<void> {
-    const underscoreElement: HTMLSpanElement | null = addBlinkUnderscore(textElement, blinkInterval);
-    
-    if (underscoreElement) {
-        await sleep(duration);
-        underscoreElement.remove();
-    }
-}
-
-async function playTypeWriterAnimation(textElement: HTMLElement | null, text: string): Promise<void> {
-    if (!textElement) return;
-
-    for (let i = 0; i < text.length; i++) {
-        textElement.innerHTML += text.charAt(i);
-        await sleep(100);
     }
 }
 
