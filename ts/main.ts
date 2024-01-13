@@ -24,7 +24,6 @@ async function initializePage(): Promise<void> {
     await constructGallery();
 
     // ページ初期化
-    initIframeSelfPage();
     initBackgroundColorChanger();
     initMaterializeWeb();
 }
@@ -93,39 +92,7 @@ function initMaterializeWeb(): void {
     M.Tooltip.init(tooltippedElements, {});
 }
 
-/**
- * 特殊処理。自身のページを表示する専用iframeタグを初期化する
- */
-function initIframeSelfPage(): void {
-    const selfPageElement: HTMLElement | null = document.getElementById('iframe-self-page');
-    if (!selfPageElement) return;
 
-    // iframe倍率の計算
-    const iframeElement: HTMLIFrameElement = selfPageElement as HTMLIFrameElement;
-    const screenWidth: number = window.innerWidth;
-    const iframeContainer: HTMLElement | null = iframeElement?.parentElement;
-    const iframeWidth: number = iframeContainer?.clientWidth || 0;
-    const iframeHeight: number = iframeContainer?.clientHeight || 0;
-    const iframeZoom: number = iframeWidth / screenWidth;
-
-    // iframe 設定
-    if (iframeElement) {
-        iframeElement.style.width = `${iframeWidth}px`;
-        iframeElement.style.height = `${iframeHeight}px`;
-        iframeElement.src = `index.html?iframe=true&zoom=${iframeZoom}`;
-    }
-
-    // 自身がiframeだった場合の設定(URLパラメータで検知)
-    const url: URL = new URL(document.location.href);
-    const urlParameters: URLSearchParams = url.searchParams;
-    const pageIsIframe: boolean = urlParameters.get('iframe') === 'true';
-
-    if (pageIsIframe && iframeElement) {
-        const zoom: number = parseFloat(urlParameters.get('zoom') || '1');
-        (document.body.style as any).zoom = `${zoom}`;
-        iframeElement.src = '';
-    }
-}
 
 async function constructGallery(): Promise<void> {
     const galleryHtmlConstructor: GalleryHtmlConstructor = new GalleryHtmlConstructor();    
