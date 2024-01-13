@@ -2,7 +2,9 @@
     "contents" : [
         {
             "title" : "",
-            "description" : "",
+            "description" : [
+                
+            ],
             "media" : {
                 "type" : "",
                 "src" : "",

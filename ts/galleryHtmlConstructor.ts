@@ -11,7 +11,7 @@ export interface Link {
 
 export interface Media {
     type: MediaType;
-    src: string;
+    src: string | string[];
     link: Link | null;
 }
 
@@ -112,58 +112,101 @@ export class GalleryHtmlConstructor {
     
     
     generateCardBlockElement(media: Media): HTMLElement {
-        const cardBlockHtml: string = this.generateCardBlockHtml(media);
-        const cardBlockElement: HTMLElement = document.createElement('div');
-        cardBlockElement.innerHTML = cardBlockHtml.trim();
-        return cardBlockElement.firstChild as HTMLElement;
-    }
-    
-    generateCardBlockHtml(media: Media): string {
-        return `
-<div class="col s7">
-    <div class="card">
-        <div class="card-image">
-            ${this.generateMediaHtml(media)}
-        </div>
-    </div>
-</div>
-`;
-    }
-    
-    generateMediaHtml(media: Media): string {
-        switch (media.type) {
-            case MediaType.Image:
-                return media.link ? this.generateLinkImageHtml(media.src, media.link) : this.generateImageHtml(media.src);
-            case MediaType.Video:
-                return this.generateVideoHtml(media.src);
-            case MediaType.Page:
-                return this.generatePageHtml(media.src);
+        const blockElement: HTMLElement = document.createElement('div');
+        blockElement.className = 'col s7';
+
+        if (this.isImageCarousel(media)) {
+            const srcList = media.src as string[];
+            const mediaElements: HTMLElement[] = srcList.map(src => this.generateMediaElement({type: MediaType.Image, src: src, link: null}));
+            const mediaCardElements: HTMLElement[] = mediaElements.map(mediaElement => this.generateCardElement(mediaElement));
+            const carouselCardElement: HTMLElement = this.generateCarouselCardElement(mediaCardElements);
+            blockElement.appendChild(carouselCardElement);
+        } else {
+            const mediaElement: HTMLElement = this.generateMediaElement(media);
+            const cardElement: HTMLElement = this.generateCardElement(mediaElement);
+            blockElement.appendChild(cardElement);
         }
-    }
-    
-    generateVideoHtml(src: string): string {
-        return `
-<video class="materialboxed" src="${src}" autoplay muted loop></video>
-`;
-    }
-    
-    generateImageHtml(src: string): string {
-        return `
-<img class="materialboxed" src="${src}"></img>
-`;
+        return blockElement;
     }
 
-    generateLinkImageHtml(src: string, link: Link): string {
-        return `
-<a class="tooltipped" data-position="top", data-tooltip="${link.title}" href="${link.url}">
-    <img src="${src}"></img>
-</a>
-`;
+    isImageCarousel(media: Media): boolean {
+        return media.type == MediaType.Image && Array.isArray(media.src);
+    }
+
+    generateCarouselCardElement(cardElements: HTMLElement[]): HTMLElement {
+        const carouselElement: HTMLElement = document.createElement('div');
+        carouselElement.className = 'carousel carousel-slider';
+        for (const cardElement of cardElements) {
+            const carouselItemElement: HTMLElement = document.createElement('div');
+            carouselItemElement.className = 'carousel-item';
+            carouselItemElement.appendChild(cardElement);
+            carouselElement.appendChild(carouselItemElement);
+        }
+        return carouselElement;
     }
     
-    generatePageHtml(src: string): string {
-        return `
-<iframe id="iframe-self-page" frameborder="no"></iframe>
-`;
+    generateCardElement(contentElement: HTMLElement): HTMLElement {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'card';
+
+        const cardImageElement = document.createElement('div');
+        cardImageElement.className = 'card-image';
+
+        cardImageElement.appendChild(contentElement);
+        cardElement.appendChild(cardImageElement);
+        return cardElement;
+    }
+    
+    generateMediaElement(media: Media): HTMLElement {
+        if (Array.isArray(media.src)) {
+            alert('media.src is array');
+            return document.createElement('div');
+        }
+        switch (media.type) {
+            case MediaType.Image:
+                return media.link ? this.generateLinkImageElement(media.src, media.link) : this.generateImageElement(media.src);
+            case MediaType.Video:
+                return this.generateVideoElement(media.src);
+            case MediaType.Page:
+                return this.generatePageElement();
+        }
+    }
+
+    generateVideoElement(src: string): HTMLElement {
+        const videoElement: HTMLElement = document.createElement('video');
+        videoElement.className = 'materialboxed';
+        videoElement.setAttribute('src', src);
+        videoElement.setAttribute('autoplay', '');
+        videoElement.setAttribute('muted', '');
+        videoElement.setAttribute('loop', '');
+        return videoElement;
+    }
+
+    generateImageElement(src: string): HTMLElement {
+        const imageElement: HTMLElement = document.createElement('img');
+        imageElement.className = 'materialboxed';
+        imageElement.setAttribute('src', src);
+        return imageElement;
+    }
+
+    generateLinkImageElement(src: string, link: Link): HTMLElement {
+        const linkElement: HTMLElement = document.createElement('a');
+        linkElement.className = 'tooltiped';
+        linkElement.setAttribute('href', link.url);
+        linkElement.setAttribute('data-position', 'top');
+        linkElement.setAttribute('data-tooltip', link.title);
+
+        const imageElement: HTMLElement = document.createElement('img');
+        imageElement.setAttribute('src', src);
+        linkElement.appendChild(imageElement);
+
+        return linkElement;
+    }
+    
+    generatePageElement(): HTMLElement {
+        const pageElement: HTMLElement = document.createElement('iframe');
+        pageElement.setAttribute('id', 'iframe-self-page');
+        pageElement.setAttribute('frameborder', 'no');
+        return pageElement;
     }
 }
