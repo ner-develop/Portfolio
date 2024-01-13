@@ -109,5 +109,9 @@ video {
 .gallery .card-image {
     min-height: 260px;
 }
+
+.gallery iframe {
+    border: none;
+}
 /* ================================================================ */
 

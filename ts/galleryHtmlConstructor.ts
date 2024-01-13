@@ -49,38 +49,38 @@ export class GalleryHtmlConstructor {
     
     constructGalleryContent(parent: HTMLElement, content: Content): void {
         // カードブロックの生成
-        const cardBlockElement: HTMLElement = this.generateCardBlockElement(content.media);
+        const cardBlockElement: HTMLDivElement = this.generateCardBlockElement(content.media);
         parent.appendChild(cardBlockElement);
     
         // 説明ブロックの生成
-        const descriptionBlockElement: HTMLElement = this.generateDescriptionBlockElement(content);
+        const descriptionBlockElement: HTMLDivElement = this.generateDescriptionBlockElement(content);
         parent.appendChild(descriptionBlockElement);
     }
     
-    generateDescriptionBlockElement(content: Content): HTMLElement {
-        const block: HTMLElement = document.createElement('div');
+    generateDescriptionBlockElement(content: Content): HTMLDivElement {
+        const block: HTMLDivElement = document.createElement('div');
         block.className = 'col s5';
     
         // タイトルの生成
-        const h3: HTMLElement = document.createElement('h3');
+        const h3: HTMLHeadingElement = document.createElement('h3');
         h3.textContent = content.title;
         block.appendChild(h3);
     
         // 説明の生成
         for (const description of content.description) {
-            const p: HTMLElement = document.createElement('p');
+            const p: HTMLParagraphElement = document.createElement('p');
             p.textContent = description;
             block.appendChild(p);
         }
     
         // Githubリンクの生成
         if (content.github) {
-            const githubP: HTMLElement = document.createElement('p');
+            const githubP: HTMLParagraphElement = document.createElement('p');
             for (let i = 0; i < content.github.length; i++) {
                 const link: Link = content.github[i];
-                const a: HTMLElement = document.createElement('a');
+                const a: HTMLAnchorElement = document.createElement('a');
                 a.textContent = link.title;
-                a.setAttribute('href', link.url);
+                a.href = link.url;
                 githubP.appendChild(document.createTextNode("Github："));
                 githubP.appendChild(a);
                 if (i < content.github.length - 1) {
@@ -92,12 +92,12 @@ export class GalleryHtmlConstructor {
         
         // Zennリンクの生成
         if (content.zenn) {
-            const zennP: HTMLElement = document.createElement('p');
+            const zennP: HTMLParagraphElement = document.createElement('p');
             for (let i = 0; i < content.zenn.length; i++) {
                 const link: Link = content.zenn[i];
-                const a: HTMLElement = document.createElement('a');
+                const a: HTMLAnchorElement = document.createElement('a');
                 a.textContent = link.title;
-                a.setAttribute('href', link.url);
+                a.href = link.url;
                 zennP.appendChild(document.createTextNode("技術ブログ："));
                 zennP.appendChild(a);
                 if (i < content.zenn.length - 1) {
@@ -111,19 +111,19 @@ export class GalleryHtmlConstructor {
     }
     
     
-    generateCardBlockElement(media: Media): HTMLElement {
-        const blockElement: HTMLElement = document.createElement('div');
+    generateCardBlockElement(media: Media): HTMLDivElement {
+        const blockElement: HTMLDivElement = document.createElement('div');
         blockElement.className = 'col s7';
 
         if (this.isImageCarousel(media)) {
             const srcList = media.src as string[];
             const mediaElements: HTMLElement[] = srcList.map(src => this.generateMediaElement({type: MediaType.Image, src: src, link: null}));
-            const mediaCardElements: HTMLElement[] = mediaElements.map(mediaElement => this.generateCardElement(mediaElement));
-            const carouselCardElement: HTMLElement = this.generateCarouselCardElement(mediaCardElements);
+            const mediaCardElements: HTMLDivElement[] = mediaElements.map(mediaElement => this.generateCardElement(mediaElement));
+            const carouselCardElement: HTMLDivElement = this.generateCarouselCardElement(mediaCardElements);
             blockElement.appendChild(carouselCardElement);
         } else {
             const mediaElement: HTMLElement = this.generateMediaElement(media);
-            const cardElement: HTMLElement = this.generateCardElement(mediaElement);
+            const cardElement: HTMLDivElement = this.generateCardElement(mediaElement);
             blockElement.appendChild(cardElement);
         }
         return blockElement;
@@ -133,8 +133,8 @@ export class GalleryHtmlConstructor {
         return media.type == MediaType.Image && Array.isArray(media.src);
     }
 
-    generateCarouselCardElement(cardElements: HTMLElement[]): HTMLElement {
-        const carouselElement: HTMLElement = document.createElement('div');
+    generateCarouselCardElement(cardElements: HTMLElement[]): HTMLDivElement {
+        const carouselElement: HTMLDivElement = document.createElement('div');
         carouselElement.className = 'carousel carousel-slider';
         for (const cardElement of cardElements) {
             const carouselItemElement: HTMLElement = document.createElement('div');
@@ -145,11 +145,11 @@ export class GalleryHtmlConstructor {
         return carouselElement;
     }
     
-    generateCardElement(contentElement: HTMLElement): HTMLElement {
-        const cardElement = document.createElement('div');
+    generateCardElement(contentElement: HTMLElement): HTMLDivElement {
+        const cardElement: HTMLDivElement = document.createElement('div');
         cardElement.className = 'card';
 
-        const cardImageElement = document.createElement('div');
+        const cardImageElement: HTMLDivElement = document.createElement('div');
         cardImageElement.className = 'card-image';
 
         cardImageElement.appendChild(contentElement);
@@ -172,8 +172,8 @@ export class GalleryHtmlConstructor {
         }
     }
 
-    generateVideoElement(src: string): HTMLElement {
-        const videoElement = document.createElement('video') as HTMLVideoElement;
+    generateVideoElement(src: string): HTMLVideoElement {
+        const videoElement: HTMLVideoElement = document.createElement('video');
         videoElement.className = 'materialboxed';
         videoElement.src = src;
         videoElement.autoplay = true;
@@ -182,22 +182,22 @@ export class GalleryHtmlConstructor {
         return videoElement;
     }
 
-    generateImageElement(src: string): HTMLElement {
-        const imageElement: HTMLElement = document.createElement('img');
+    generateImageElement(src: string): HTMLImageElement {
+        const imageElement: HTMLImageElement = document.createElement('img');
         imageElement.className = 'materialboxed';
-        imageElement.setAttribute('src', src);
+        imageElement.src = src;
         return imageElement;
     }
 
-    generateLinkImageElement(src: string, link: Link): HTMLElement {
-        const linkElement: HTMLElement = document.createElement('a');
-        linkElement.className = 'tooltiped';
-        linkElement.setAttribute('href', link.url);
+    generateLinkImageElement(src: string, link: Link): HTMLAnchorElement {
+        const linkElement: HTMLAnchorElement = document.createElement('a');
+        linkElement.className = 'tooltipped';
+        linkElement.href = link.url;
         linkElement.setAttribute('data-position', 'top');
         linkElement.setAttribute('data-tooltip', link.title);
 
-        const imageElement: HTMLElement = document.createElement('img');
-        imageElement.setAttribute('src', src);
+        const imageElement: HTMLImageElement = document.createElement('img');
+        imageElement.src = src;
         linkElement.appendChild(imageElement);
 
         return linkElement;
@@ -207,10 +207,9 @@ export class GalleryHtmlConstructor {
      * 少し特殊。自身のページを表示するための専用iframe要素を生成する。
      * @returns iframe要素
      */
-    generateSelfPageElement(): HTMLElement {
-        const pageElement: HTMLElement = document.createElement('iframe');
-        pageElement.setAttribute('id', 'iframe-self-page');
-        pageElement.setAttribute('frameborder', 'no');
+    generateSelfPageElement(): HTMLIFrameElement {
+        const pageElement: HTMLIFrameElement = document.createElement('iframe');
+        pageElement.id = 'iframe-self-page';
         return pageElement;
     }
 }
