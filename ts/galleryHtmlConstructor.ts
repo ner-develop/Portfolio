@@ -175,10 +175,10 @@ export class GalleryHtmlConstructor {
     generateVideoElement(src: string): HTMLElement {
         const videoElement = document.createElement('video') as HTMLVideoElement;
         videoElement.className = 'materialboxed';
-        videoElement.setAttribute('src', src);
-        videoElement.setAttribute('autoplay', '');
-        videoElement.setAttribute('muted', '');
-        videoElement.setAttribute('loop', '');
+        videoElement.src = src;
+        videoElement.autoplay = true;
+        videoElement.muted = true;
+        videoElement.loop = true;
         return videoElement;
     }
 
