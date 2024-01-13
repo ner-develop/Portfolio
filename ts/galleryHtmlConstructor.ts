@@ -14,7 +14,7 @@ export interface Media {
     src: string;
 }
 
-export interface ContentJson {
+export interface ContentData {
     contents: Content[];
 }
 
@@ -33,7 +33,7 @@ export class GalleryHtmlConstructor {
 
     async loadContentsFromJson(path: string): Promise<Content[]> {
         const response: Response = await fetch(path);
-        const json: ContentJson = await response.json();
+        const json: ContentData = await response.json();
         return json.contents;
     }
     

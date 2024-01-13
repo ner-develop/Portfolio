@@ -1,7 +1,6 @@
-import { GalleryHtmlConstructor, ContentJson } from "./galleryHtmlConstructor";
+import { GalleryHtmlConstructor, ContentData } from "./galleryHtmlConstructor";
+import codingGalleryJson from "../data/coding-gallery.json";
 
-// データをscriptタグで読み込みグローバル変数に格納している
-declare const codingGalleryJson: ContentJson;
 
 
 
@@ -131,7 +130,9 @@ async function playTypeWriterAnimation(textElement: HTMLElement | null, text: st
 
 async function constructGallery(): Promise<void> {
     const galleryHtmlConstructor: GalleryHtmlConstructor = new GalleryHtmlConstructor();    
-    galleryHtmlConstructor.constructGalleryContents('coding-gallery', codingGalleryJson.contents);
+
+    const codingGalleryData: ContentData = codingGalleryJson as ContentData;
+    galleryHtmlConstructor.constructGalleryContents('coding-gallery', codingGalleryData.contents);
 }
 
 
