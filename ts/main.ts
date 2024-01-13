@@ -35,15 +35,33 @@ async function initializePage(): Promise<void> {
  */
 function initBackgroundColorChanger(): void {
     const bodyElement: HTMLBodyElement | null = document.querySelector('body');
+    if (!bodyElement) return;
+
     const initialClassNameOfBody: string | null = bodyElement?.className || '';
-    const windowHeight: number = window.innerHeight;
+    const scrolledY: number = window.scrollY;
+
+    const codingGalleryElement: HTMLElement | null = document.getElementById('coding-gallery');
+    const hasCodingGallery: boolean = codingGalleryElement !== null;
+    const codingGalleryTop: number = hasCodingGallery ? scrolledY + codingGalleryElement!.getBoundingClientRect().top : 0;
+    
+    const blogGalleryElement: HTMLElement | null = document.getElementById('blog-gallery');
+    const hasBlogGallery: boolean = blogGalleryElement !== null;
+    const blogGalleryTop: number = hasBlogGallery ? scrolledY + blogGalleryElement!.getBoundingClientRect().top : 0;
+
+    const artGalleryElement: HTMLElement | null = document.getElementById('art-gallery');
+    const hasArtGallery: boolean = artGalleryElement !== null;
+    const artGalleryTop: number = hasArtGallery ? scrolledY + artGalleryElement!.getBoundingClientRect().top : 0;
 
     function setBackgroundColorByScrollPosition(): void {
-        const scrollPosition: number = window.scrollY;
-        if (scrollPosition < windowHeight) {
+        let scrollPosition: number = window.scrollY;
+        if (scrollPosition < codingGalleryTop) {
             bodyElement!.className = `${initialClassNameOfBody} color-section1`;
-        } else {
+        } else if (scrollPosition < blogGalleryTop) {
             bodyElement!.className = `${initialClassNameOfBody} color-section2`;
+        } else if (scrollPosition < artGalleryTop) {
+            bodyElement!.className = `${initialClassNameOfBody} color-section3`;
+        } else {
+            bodyElement!.className = `${initialClassNameOfBody} color-section4`;
         }
     }
 
@@ -71,6 +89,9 @@ function initMaterializeWeb(): void {
     M.Tooltip.init(tooltippedElements, {});
 }
 
+/**
+ * 特殊処理。自身のページを表示する専用iframeタグを初期化する
+ */
 function initIframeSelfPage(): void {
     const selfPageElement: HTMLElement | null = document.getElementById('iframe-self-page');
     if (!selfPageElement) return;

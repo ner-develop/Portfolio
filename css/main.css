@@ -28,13 +28,22 @@ body {
 
 .color-section2 {
     /*Blue Gray 100*/
-    background-color: #CFD8DC;
+    /*background-color: #CFD8DC;*/
     /*Teal 100*/
     /*background-color: #B2DFDB;*/
     /*Light Blue 50*/
-    /*background-color: #E1F5FE;*/
+    background-color: #E1F5FE;
     /*Pink 50*/
     /*background-color: #FCE4EC;*/
+}
+
+.color-section3 {
+    background-color: #dadccf;
+}
+
+.color-section4 {
+    /*Pink 50*/
+    background-color: #FCE4EC;
 }
 
 video {
