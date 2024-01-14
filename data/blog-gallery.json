@@ -1,6 +1,50 @@
 {
     "contents": [
         {
+            "title" : "PBD",
+            "description": [
+                "論文「Position Based Dynamics」(PBD)の解説記事を書きました。アルゴリズムの実装だけでなく、数式やアルゴリズムの説明について学びながら解説しました。",
+                "PBDは質点間に制約を与え、それを保持するように位置を直接変更して座標を更新する手法です。従来の力を加えて座標を更新する手法に比べて、直接座標を更新するため扱いやすく、比較的安定しているのでゲームなどによく使われる手法です。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_pbd.png",
+                "link": {
+                    "title": "[Unity] 論文を読んで紐物理を実装してみよう(PBD: Position Based Dynamics)",
+                    "url": "https://zenn.dev/nrdev/articles/141dbc5774f666"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] 論文を読んで紐物理を実装してみよう(PBD: Position Based Dynamics)",
+                    "url": "https://zenn.dev/nrdev/articles/141dbc5774f666"
+                }
+            ]
+        },
+        {
+            "title" : "XPBD",
+            "description": [
+                "論文「XPBD: Position-Based Simulation of Compliant Constrained Dynamics」の解説記事を書きました。PBDで課題となっていた剛性の精度の改善がされています。",
+                "PBDでは制約距離からのズレを修正距離としますが、その修正距離に剛性値をかけて調整します。そのため剛性が計算反復回数などにより副作用を受けます。一方で、XPBDでは剛性値を考えた運動方程式を解くことで修正距離を得るため、運動方程式に沿った剛性を得ることができます。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_xpbd.png",
+                "link": {
+                    "title": "[Unity] 論文を読んで紐物理を実装してみよう(XPBD: Extended Position Based Dynamics)",
+                    "url": "https://zenn.dev/nrdev/articles/68ff50a19d91b9"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[Unity] 論文を読んで紐物理を実装してみよう(XPBD: Extended Position Based Dynamics)",
+                    "url": "https://zenn.dev/nrdev/articles/68ff50a19d91b9"
+                }
+            ]
+        },
+        {
             "title": "Gerstner Waves",
             "description": [
                 "波の形状を表現する実装です。数式を順に読み解きながらどういう仕組みなのか解説しました。Gerstner Wavesの式は分解すると高校数学で扱う三角関数と内積のみで表現されており、波の形状という幾何的な形状を表すものなので、一つずつ追っていくことで式の意味が理解しやすいです。"
@@ -81,6 +125,27 @@
                 {
                     "title": "[Unity] シンプレクティック法でオイラー陽解法の精度改善",
                     "url": "https://zenn.dev/nrdev/articles/f45e118d5796a4"
+                }
+            ]
+        },
+        {
+            "title": "[UE5] 背景透過したカメラキャプチャ画像をUIに表示する",
+            "description": [
+                "UE5のUI実装に関する記事です。"
+            ],
+            "media": {
+                "type": "img",
+                "src": "media/blog_memo_ue5_capture.png",
+                "link": {
+                    "title": "[UE5] 背景透過したカメラキャプチャ画像をUIに表示する",
+                    "url": "https://zenn.dev/nrdev/articles/8643d36c80049b"
+                }
+            },
+            "github": null,
+            "zenn": [
+                {
+                    "title": "[UE5] 背景透過したカメラキャプチャ画像をUIに表示する",
+                    "url": "https://zenn.dev/nrdev/articles/8643d36c80049b"
                 }
             ]
         }

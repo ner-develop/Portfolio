@@ -3,7 +3,8 @@
         {
             "title": "紐物理の実装",
             "description": [
-                "論文をもとにPBD/XPBD(PositionBasedDynamics)の実装をしました。PBDではどういう課題があり、それをXPBDではどう解決したのか、順に追って学べたのも面白かったです。アルゴリズムをただコーディングするだけでなく、論文を通して物理シミュレーションや数理最適などのテクニックなどに触れ、学びが多くありました。また、PBDは多く使われている技術のため、どのような実装がされているのか知ることができ興味深く、楽しく実装できました。"
+                "論文をもとにPBD/XPBD(PositionBasedDynamics)の実装をしました。実装はUnity、UE5、Godotでそれぞれ行いました。",
+                "PBDではどういう課題があり、それをXPBDではどう解決したのか、順に追って学べたのも面白かったです。アルゴリズムをただコーディングするだけでなく、論文を通して物理シミュレーションや数理最適などのテクニックなどに触れ、学びが多くありました。"
             ],
             "media": {
                 "type": "video",
@@ -142,7 +143,7 @@
         {
             "title": "ポートフォリオサイト",
             "description": [
-                "Github Pagesを使って、HTML/CSS/Javascriptで作成しています。"
+                "Github Pagesを使って、HTML/CSS/TypeScriptで作成しています。"
             ],
             "media": {
                 "type": "self-page",

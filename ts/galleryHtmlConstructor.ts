@@ -71,7 +71,7 @@ export class GalleryHtmlConstructor {
         // 説明の生成
         for (const description of content.description) {
             const p: HTMLParagraphElement = document.createElement('p');
-            p.textContent = description;
+            p.innerHTML = description;
             block.appendChild(p);
         }
     
