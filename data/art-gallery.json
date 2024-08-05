@@ -33,7 +33,7 @@
             ],
             "media" : {
                 "type" : "video",
-                "src" : "media/pole-dance.mp4"
+                "src" : "media/pole_dance.mp4"
             }
         }
     ]
