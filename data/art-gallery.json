@@ -25,6 +25,16 @@
                     "media/pancake3.png"
                 ]
             }
+        },
+        {
+            "title" : "モーション作成",
+            "description" : [
+                "Blenderによるモーション作成を行いました。題材としたポールダンスの実際の映像や技について調べ、コマ送りの動きを一度手書きで書き、Blenderのモーションに落とし込みました。"
+            ],
+            "media" : {
+                "type" : "video",
+                "src" : "media/pole-dance.mp4"
+            }
         }
     ]
 }
